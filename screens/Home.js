@@ -48,7 +48,7 @@ const Home = ({ navigation }) => {
         onPress={() => {
           navigation.navigate('Mouse', { hostIp: hostIp, port: port });
         }}>
-        <Text style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}>Conect</Text>
+        <Text style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}>Connect</Text>
       </TouchableOpacity>
     </View>
   );

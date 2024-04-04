@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { DeviceMotion } from 'expo-sensors';
+import { Accelerometer } from 'expo-sensors';
 
 const Mouse = ({ route, navigation }) => {
   const { hostIp, port } = route.params;
@@ -9,10 +9,10 @@ const Mouse = ({ route, navigation }) => {
   const isLeftPressedRef = useRef(false);
   const isRightPressedRef = useRef(false);
 
-  DeviceMotion.setUpdateInterval(100);
+  Accelerometer.setUpdateInterval(10);
 
   useEffect(() => {
-    const subscription = DeviceMotion.addListener((data) => {
+    const subscription = Accelerometer.addListener((data) => {
       fetch(`http://${hostIp}:${port}`, {
         method: 'POST',
         headers: {
